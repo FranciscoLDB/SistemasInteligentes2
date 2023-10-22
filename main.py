@@ -1,12 +1,20 @@
 import pandas as pd
 import math
-from c45 import C45
+def calculate_entropy(x):
+    ent=0
+    for k in set(x):
+        p_i=float(x.count(k))/len(x)
+        ent=ent-p_i* math.log(p_i,2)
+    
+    print('x:')
+    print(x)
+    print('Entropy:')
+    print(ent)
+    return ent
 
-def calculate_entropy(values):
+def alculate_entropy(values):
     total_values = len(values)
     value_counts = {}  # Dicionário para contar a frequência de cada valor
-
-
     for value in values:
         if value not in value_counts:
             value_counts[value] = 1
