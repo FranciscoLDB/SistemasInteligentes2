@@ -17,7 +17,7 @@ data = data.drop('gravid', axis=1)
 X = data.iloc[:, :-1].values
 Y = data.iloc[:, -1].values
 
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=1234)
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_state=1234)
 clf = RandomForest(n_trees=10, max_depth=10, min_samples_split=2)
 clf.fit(X_train, y_train)
 predictions = clf.predict(X_test)
