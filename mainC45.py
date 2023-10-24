@@ -18,7 +18,7 @@ Y = data.iloc[:, -1].values.reshape(-1,1)
 #print(X)
 #print(Y)
 
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=.2,random_state=41)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=.3,random_state=41)
 
 classifier = DecisionTreeClassifier(max_depth=2, min_samples_split=2, mode='entropy')
 classifier.fit(X_train,Y_train)
