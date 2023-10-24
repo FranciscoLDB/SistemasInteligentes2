@@ -15,7 +15,7 @@ class Node():
         self.value = value
 
 class DecisionTreeClassifier():
-    def __init__(self, min_samples_split=2, max_depth=2):
+    def __init__(self, min_samples_split=2, max_depth=2, mode='gine'):
         ''' constructor '''
         
         # initialize the root of the tree 
@@ -24,6 +24,7 @@ class DecisionTreeClassifier():
         # stopping conditions
         self.min_samples_split = min_samples_split
         self.max_depth = max_depth
+        self.mode = mode
         
     def build_tree(self, dataset, curr_depth=0):
         ''' recursive function to build the tree ''' 
@@ -69,7 +70,7 @@ class DecisionTreeClassifier():
                 if len(dataset_left)>0 and len(dataset_right)>0:
                     y, left_y, right_y = dataset[:, -1], dataset_left[:, -1], dataset_right[:, -1]
                     # compute information gain
-                    curr_info_gain = self.information_gain(y, left_y, right_y, "gini")
+                    curr_info_gain = self.information_gain(y, left_y, right_y, self.mode)
                     # update the best split if needed
                     if curr_info_gain>max_info_gain:
                         best_split["feature_index"] = feature_index

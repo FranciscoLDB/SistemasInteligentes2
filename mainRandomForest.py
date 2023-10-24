@@ -1,6 +1,6 @@
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from randomForest import RandomForest
+from classes.randomForest import RandomForest
 from sklearn.metrics import accuracy_score
 import pandas as pd
 
